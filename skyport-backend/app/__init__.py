@@ -3,6 +3,15 @@ from .extensions import db, jwt, migrate
 from .config import Config
 from .routes.auth import auth_bp
 
+# 🚨 Import models so they are registered before migrations
+from .models.user import User
+from .models.role import Role
+from .models.airport import Airport
+from .models.aircraft import Aircraft
+from .models.flight import Flight
+from .models.booking import Booking
+
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
@@ -11,6 +20,8 @@ def create_app():
     db.init_app(app)
     jwt.init_app(app)
     migrate.init_app(app, db)
+    
+
 
     # Register blueprints
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
