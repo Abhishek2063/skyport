@@ -13,4 +13,5 @@ class Role(db.Model):
     is_deleted = db.Column(db.Boolean, default=False)
     deleted_at = db.Column(db.DateTime, nullable=True)
 
-    users = db.relationship('User', backref='role', lazy=True)
+    users = db.relationship('User', back_populates='role', lazy=True)
+

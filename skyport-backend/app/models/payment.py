@@ -15,7 +15,7 @@ class Payment(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     # Optional relationship
-    booking = db.relationship('Booking', backref='payment', uselist=False)
+    booking = db.relationship("Booking", back_populates="payment")
 
     def __repr__(self):
         return f"<Payment {self.id} - {self.status}>"

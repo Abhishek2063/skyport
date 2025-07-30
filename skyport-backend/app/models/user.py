@@ -19,4 +19,4 @@ class User(db.Model):
     deleted_at = db.Column(db.DateTime)
 
     role = db.relationship("Role", back_populates="users")
-    bookings = db.relationship('Booking', backref='user', lazy=True)
+    bookings = db.relationship('Booking', back_populates='user')

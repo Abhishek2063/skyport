@@ -20,5 +20,5 @@ class Airport(db.Model):
     def __repr__(self):
         return f"<Airport {self.code} - {self.name}>"
     
-    departing_flights = db.relationship('Flight', foreign_keys='Flight.departure_airport_id', backref='departure_airport', lazy=True)
-    arriving_flights = db.relationship('Flight', foreign_keys='Flight.arrival_airport_id', backref='arrival_airport', lazy=True)
+    departing_flights = db.relationship('Flight', foreign_keys='Flight.departure_airport_id', back_populates='departure_airport')
+    arriving_flights = db.relationship('Flight', foreign_keys='Flight.arrival_airport_id', back_populates='arrival_airport')

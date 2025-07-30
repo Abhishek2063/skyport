@@ -18,4 +18,4 @@ class Aircraft(db.Model):
     def __repr__(self):
         return f"<Aircraft {self.code} - {self.name}>"
 
-    flights = db.relationship('Flight', backref='aircraft', lazy=True)
+    flights = db.relationship('Flight', back_populates='aircraft')

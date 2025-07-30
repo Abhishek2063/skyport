@@ -17,8 +17,8 @@ class Booking(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     # Relationships (optional, for convenience)
-    user = db.relationship('User', back_populates='bookings', lazy=True)
-    flight = db.relationship('Flight', back_populates='bookings', lazy=True)
-    payment = db.relationship('Payment', backref='booking', uselist=False)
+    user = db.relationship('User', back_populates='bookings')
+    flight = db.relationship('Flight', back_populates='bookings')
+    payment = db.relationship("Payment", back_populates="booking")
     def __repr__(self):
         return f"<Booking {self.booking_code}>"
