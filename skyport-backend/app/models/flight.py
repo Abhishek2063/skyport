@@ -25,7 +25,7 @@ class Flight(db.Model):
     is_deleted = db.Column(db.Boolean, default=False)
     deleted_at = db.Column(db.DateTime, nullable=True)
     
-    bookings = db.relationship('Booking', backref='fight', lazy=True)
+    bookings = db.relationship('Booking', backref='flight', lazy=True)
 
     def __repr__(self):
         return f"<Flight {self.flight_number}>"
